@@ -114,11 +114,25 @@ for(let prop in bondFilms){
 }
 console.log(oddBonds);
 let gross=0;
-let number=0;
-for(let prop in bondFilms){
-  number=parseFloat(bondFilms[prop].gross.replace(/[^0-9\.]+/g, ''));
 
-  gross+=number;
+for(let prop in bondFilms){
+  let number='';
+
+  for(i=0;i<bondFilms[prop].gross.length;i++){
+
+
+    if(!isNaN(bondFilms[prop].gross[i])){
+      number+= (parseInt(bondFilms[prop].gross[i]));
+    
+
+    }
+  }
+
+
+ gross+=(parseInt(number));
 
 }
+
+
+
 console.log("$"+gross);
